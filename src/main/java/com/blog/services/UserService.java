@@ -14,4 +14,6 @@ public interface UserService {
     void deleteUserById(String userId);
 
     UserDto updateUser(UserDto userDto, String userId);
+
+    UserDto registerNewUser(UserDto userDto);
 }
