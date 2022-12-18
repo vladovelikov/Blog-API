@@ -25,7 +25,7 @@ public class SwaggerConfig {
 
     private ApiInfo getInfo() {
 
-        return new ApiInfo("Blog App APIs", "Backend API for Blogging App using Java SpringBoot", "1.0", "Terms of Service", new Contact("Lakshy Gupta", "https://github.com/vladovelikov", "vladimir.velikov1995@gmail.com"), "License of APIs", "API License URL", Collections.emptyList());
+        return new ApiInfo("Blog App APIs", "Backend API for Blogging App using Java SpringBoot", "1.0", "Terms of Service", new Contact("Vladimir Velikov", "https://github.com/vladovelikov", "vladimir.velikov1995@gmail.com"), "License of APIs", "API License URL", Collections.emptyList());
     }
 }
 
