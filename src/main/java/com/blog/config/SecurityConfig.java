@@ -25,7 +25,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 public class SecurityConfig {
 
     public static final String[] PUBLIC_URLS = {
-            "/api/v1/auth/**",
+            "/api/auth/**",
             "/v3/api-docs",
             "/v3/api-docs/**",
             "/v2/api-docs",
