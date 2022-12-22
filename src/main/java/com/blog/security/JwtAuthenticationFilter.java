@@ -34,8 +34,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         // 1. get token from Authorization header in request
         String requestToken = request.getHeader("Authorization");
 
-        System.out.println(requestToken);
-
         String username = null;
         String token = null;
 

@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -16,8 +17,8 @@ public class UserDto {
 
 
     @NotEmpty
-    @Size(min = 4, message = "Username should be at least 4 characters long.")
-    private String username;
+    @Size(min = 4, message = "User name should be at least 4 characters long.")
+    private String name;
 
     @Email(message = "Email address is not valid.")
     @NotEmpty
@@ -30,7 +31,5 @@ public class UserDto {
     @NotEmpty
     private String about;
 
-    private Set<CommentDto> comments;
-
-    private Set<RoleDto> roles;
+    private Set<CommentDto> comments = new HashSet<>();
 }

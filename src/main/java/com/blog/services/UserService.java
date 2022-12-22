@@ -7,13 +7,13 @@ public interface UserService {
 
     UserDto createUser(UserDto userDto);
 
-    UserDto getUserById(String userId);
+    UserDto getUserById(Integer userId);
 
     List<UserDto> getAllUsers();
 
-    void deleteUserById(String userId);
+    void deleteUserById(Integer userId);
 
-    UserDto updateUser(UserDto userDto, String userId);
+    UserDto updateUser(UserDto userDto, Integer userId);
 
     UserDto registerNewUser(UserDto userDto);
 }

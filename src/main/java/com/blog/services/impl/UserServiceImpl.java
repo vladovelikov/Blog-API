@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -40,7 +41,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto getUserById(String userId) {
+    public UserDto getUserById(Integer userId) {
         User user = this.userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User not found!"));
         return this.modelMapper.map(user, UserDto.class);
     }
@@ -53,14 +54,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUserById(String userId) {
+    public void deleteUserById(Integer userId) {
         this.userRepository.deleteById(userId);
     }
 
     @Override
-    public UserDto updateUser(UserDto userDto, String userId) {
+    public UserDto updateUser(UserDto userDto, Integer userId) {
         User user = this.userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User not found!"));
-        user.setUsername(userDto.getUsername());
+        user.setName(userDto.getName());
         user.setEmail(userDto.getEmail());
         user.setAbout(userDto.getAbout());
         user.setPassword(userDto.getPassword());
@@ -74,8 +75,7 @@ public class UserServiceImpl implements UserService {
         User user = this.modelMapper.map(userDto, User.class);
         user.setPassword(this.passwordEncoder.encode(user.getPassword()));
 
-        Role role = this.roleRepository.findRoleByName("USER");
-        user.getRoles().add(role);
+        user.setRoles(Set.of(this.roleRepository.findRoleByName("USER")));
 
         this.userRepository.save(user);
 
